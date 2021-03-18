@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row my-5">
+        <div class="col">
+            <h1 class="text-center">Movie Search</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center mb-4">
+        <div class="col-12 d-lg-flex">
+            <input type="text" class="form-control" @input="Search" v-model="query" placeholder="Enter movie name"> 
+        </div>
+    </div>
+    <div class="row mb-4" v-show="movies.length">
+        <div class="col-6 align-items-center">
+            <span class="align-baseline">Total results: {{total}}<br> {{page}} from {{pages}}</span>
+        </div>
+        <div class="col-6 text-right">
+            
+            <ul class="pagination justify-content-end">
+                <li class="page-item" :class="{ disabled: page === 1}">
+                    <span 
+                        @click="HandlePagination(-1)" 
+                        class="page-link" 
+                        style="cursor: pointer;"
+                    >Previous</span>
+                </li>
+                <li class="page-item" :class="{ disabled: page === pages}">
+                    <span 
+                        @click="HandlePagination(1)" 
+                        class="page-link" 
+                        style="cursor: pointer;"
+                    >Next</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <MovieList 
+            :movies="movies" 
+            :error="responseErrorMessage"
+            @showDetail="ShowMovieDetail" 
+        />        
+    </div>
+    <MovieDetail :movie="movieDetail" />
+    
+</div>

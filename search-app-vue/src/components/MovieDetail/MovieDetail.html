@@ -1,0 +1,68 @@
+<div id="detailModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{movieDetail.Title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <div v-show="!loading" class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <img class="img-fluid border" :src="poster" alt="Movie poster">
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="row">
+                            <div class="col-12">Year: {{movieDetail.Year}}</div>
+                            <div class="col-12">Type: {{movieDetail.Type}}</div>
+                            <div class="col-12">Rated: {{movieDetail.Rated}}</div>
+                            <div class="col-12">Released: {{movieDetail.Released}}</div>
+                            <div class="col-12">Runtime: {{movieDetail.Runtime}}</div>
+                            <div class="col-12">Genre: {{movieDetail.Genre}}</div>
+                            <div class="col-12">Director: {{movieDetail.Director}}</div>
+                            <div class="col-12">Writer: {{movieDetail.Writer}}</div>
+                            <div class="col-12">Actors: {{movieDetail.Actors}}</div>
+                            <div class="col-12">Language: {{movieDetail.Language}}</div>
+                            <div class="col-12">Country: {{movieDetail.Country}}</div>
+                            <div class="col-12">Metascore: {{movieDetail.Metascore}}</div>
+                            <div class="col-12">imdbRating: {{movieDetail.imdbRating}}</div>
+                            <div class="col-12">imdbVotes: {{movieDetail.imdbVotes}}</div>
+                            <div class="col-12">DVD: {{movieDetail.DVD}}</div>
+                            <div class="col-12">BoxOffice: {{movieDetail.BoxOffice}}</div>
+                            <div class="col-12">Production: {{movieDetail.Production}}</div>
+                            <div class="col-12">Website: {{movieDetail.Website}}</div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-12">Plot: {{movieDetail.Plot}}</div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-12">Ratings:</div>
+                        <ul>
+                            <li v-for="(rating, index) in movieDetail.Ratings">
+                                {{rating.Source}}: {{rating.Value}} 
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12">Awards: {{movieDetail.Awards}}</div>
+                </div>
+            </div>
+            
+
+
+            <div v-show="loading" class="row">
+                <div class="col text-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+      </div>
+    </div>
+</div>

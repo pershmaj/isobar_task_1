@@ -1,0 +1,14 @@
+<div v-show="!error" class="row" >
+    <div class="card-deck">
+        <MovieListItem
+        v-for="movie in movies" 
+        :key="movie.imdbID" 
+        :movie="movie" 
+        @showDetail="ShowDetail"
+    />
+    </div>
+    
+</div>
+<div class="row" v-show="error">
+    <div class="col">{{error}}</div>
+</div>
