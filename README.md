@@ -21,7 +21,8 @@ To run via docker
 
 application will be available on http://localhost 
 
-login data or check ./backend/database/user.js: 
+login data or check ./backend/database/user.js:
+```javascrip 
 {
     id: 1,
     login: 'isobar',
@@ -32,6 +33,7 @@ login data or check ./backend/database/user.js:
     login: 'dima',
     password: '1'
 }
+```
 
 Enjoy :)
 
